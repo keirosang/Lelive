@@ -1,0 +1,64 @@
+html,body,a,span,p,h1,h2,h3,h4,h5,h6,button,label{
+    font-family: 'Open Sans','STXihei','Microsoft YaHei',sans-serif !important;
+}
+a{
+    text-decoration: none;
+}
+.main-content{
+    max-width:1250px;
+    padding-top:24px;
+    padding-bottom: 40px;
+}
+.mdl-card{
+    width:auto;
+    min-height: 210px;
+}
+.mdl-layout__drawer-button{
+    background-color:rgba(255,255,255,0) !important;
+}
+.header-background-image{
+    background-image: url('http://ww2.sinaimg.cn/large/a15b4afegw1f0op2xrl6uj21kw0qmq8y.jpg');
+}
+.live-shotcut{
+    background-size: cover;
+    background-position: center;
+}
+.user-name{
+    color:white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
+.login-content{
+    max-width: 600px;
+    margin:0 auto;
+    padding-top:24px;
+}
+.login-info,.login-submit{
+    padding:16px 32px;
+}
+.submit-link{
+    padding-left: 20px;
+}
+.login-image{
+    float:right;
+    padding:10px;
+}
+.login-input{
+    width:85%;
+    max-width:300px;
+}
+.user-danmaku{
+    font-size:16px;
+    padding:5px;
+}
+.user-gravatar{
+    border-radius: 100%;
+    background-color: white;
+    padding: 5px;
+}
+.live-info{
+    min-height: 0;
+}
+.user-config{
+    width:100%;
+    border: 0;
+}
