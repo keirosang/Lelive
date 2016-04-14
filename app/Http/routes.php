@@ -29,9 +29,6 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/','ShowController@index')->name('index');
     Route::get('/u/{id}','ShowController@show');
-});
-
-Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::controller('account', 'AccountController');
 });
