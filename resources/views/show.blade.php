@@ -5,7 +5,7 @@
         <div class="mdl-cell mdl-cell--12-col">
             <div class="mdl-card mdl-shadow--4dp live-info">
                 <div class="mdl-card__title" style="padding-bottom: 0;padding-top: 0;">
-                    <img src="//gravatar.iwch.me/avatar/{{ md5($email) }}?s=80" class="user-gravatar">
+                    <img src="//gravatar.tycdn.net/avatar/{{ md5($email) }}?s=80" class="user-gravatar">
                     <div class="mdl-card live-info">
                         <div class="mdl-card__supporting-text">
                             <h4 style="margin:5px;">{{ $title }}</h4>

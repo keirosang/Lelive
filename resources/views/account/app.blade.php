@@ -5,7 +5,7 @@
         <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
             <div class="mdl-card mdl-shadow--4dp">
                 <div class="mdl-card__title header-background-image">
-                    <img src="//gravatar.iwch.me/avatar/{{ md5(Auth::user()->email) }}?s=60" class="user-gravatar">
+                    <img src="//gravatar.tycdn.net/avatar/{{ md5(Auth::user()->email) }}?s=60" class="user-gravatar">
                     <div class="mdl-card live-info" style="background-color: rgba(255,255,255,0);">
                         <div class="mdl-card__supporting-text user-name">
                             <h4 style="margin:5px;">个人信息</h4>
