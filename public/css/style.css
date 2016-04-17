@@ -65,3 +65,15 @@ a{
 .site-title{
     cursor: pointer;
 }
+.danmuarea{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+#player{
+    position: absolute;
+    width: 100%;
+}
+.danmaku{
+    font-family: "SimHei" !important;
+}

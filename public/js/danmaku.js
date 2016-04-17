@@ -91,6 +91,7 @@ function showMessage(name, data) {
     var div = document.createElement('div');
     div.className = 'user-danmaku';
     div.innerHTML = msg;
+    sendDanmaku(encodeHTML(data));
     printWall.appendChild(div);
     if(printWall.childNodes.length>150){
         printWall.removeChild(printWall.childNodes[0]);
@@ -141,4 +142,29 @@ function sendMsg() {
             printWall.scrollTop = printWall.scrollHeight;
         });
     }
+}
+
+$("#danmu").danmu({
+    left:0,
+    top:5,
+    height:180,
+    width:"100%",
+    speed:7000,
+    opacity:1,
+    font_size_small:16,
+    font_size_big:24,
+    top_botton_danmu_time:6000
+});
+
+$('#danmu').danmu('danmuStart');
+
+function sendDanmaku(message){
+    var text = message;
+    var color = "#FFFFFF";
+    var position = 0;
+    var time = $('#danmu').data("nowTime")+1;
+    var size = 1;
+    var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","time":'+time+'}';
+    var new_obj=eval('('+text_obj+')');
+    $('#danmu').danmu("addDanmu",new_obj);
 }

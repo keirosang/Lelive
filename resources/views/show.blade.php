@@ -23,8 +23,11 @@
             </div>
         </div>
         <div class="mdl-cell mdl-cell--8-col">
-            <div class="mdl-card mdl-shadow--4dp">
+            <div class="mdl-card mdl-shadow--4dp" id="playcard">
                 <div id="player"></div>
+                <div class="danmuarea">
+                    <div id="danmu"></div>
+                </div>
             </div>
         </div>
         <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
@@ -47,6 +50,7 @@
 
 @section('js')
     <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+    <script src="{{ url('/js/jquery.danmu.js') }}"></script>
     <script src="{{ url('/js/blive.js') }}"></script>
     <script src="{{ url('/js/AV.realtime.js') }}"></script>
     <script src="{{ url('/js/danmaku.js') }}"></script>
