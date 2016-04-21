@@ -27,3 +27,7 @@
         @endif
     </div>
 @endsection
+
+@section('js')
+    <script src="{{ url('/js/index.min.js') }}"></script>
+@endsection

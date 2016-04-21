@@ -5,13 +5,11 @@ a{
     text-decoration: none;
 }
 .main-content{
-    max-width:1250px;
-    padding-top:24px;
+    max-width:2560px;
     padding-bottom: 40px;
 }
 .mdl-card{
     width:auto;
-    min-height: 210px;
 }
 .mdl-layout__drawer-button{
     background-color:rgba(255,255,255,0) !important;

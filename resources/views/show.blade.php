@@ -54,7 +54,7 @@
     <script src="{{ url('/js/blive.js') }}"></script>
     <script src="{{ url('/js/AV.realtime.js') }}"></script>
     <script src="{{ url('/js/danmaku.js') }}"></script>
-    <script src="{{ url('/js/index.min.js') }}"></script>
+    <script src="{{ url('/js/live.min.js') }}"></script>
     <script>
         var player = new CloudLivePlayer();
         player.init({activityId:"{{ $activityId }}"},'player');

@@ -147,7 +147,7 @@ function sendMsg() {
 $("#danmu").danmu({
     left:0,
     top:5,
-    height:180,
+    height:210,
     width:"100%",
     speed:7000,
     opacity:1,
