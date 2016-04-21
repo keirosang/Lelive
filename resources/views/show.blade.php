@@ -38,7 +38,7 @@
                 <div class="mdl-card__supporting-text" style="height: 70%;overflow-y:scroll;width:auto;" id="printWall">
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <div class="mdl-textfield mdl-js-textfield login-input" style="margin-left:5%">
+                    <div class="mdl-textfield mdl-js-textfield danmaku-input">
                         <input class="mdl-textfield__input" type="email" id="danmaku">
                         <label class="mdl-textfield__label" for="danmaku">点此发送弹幕</label>
                     </div>

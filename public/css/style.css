@@ -44,6 +44,10 @@ a{
     width:85%;
     max-width:300px;
 }
+.danmaku-input{
+    width:90%;
+    margin-left: 5%;
+}
 .user-danmaku{
     font-size:16px;
     padding:5px;
