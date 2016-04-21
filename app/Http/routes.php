@@ -11,9 +11,7 @@
 |
 */
 
-//Route::get('/', function () {
-//    //
-//});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +27,11 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/','ShowController@index')->name('index');
     Route::get('/u/{id}','ShowController@show');
+    Route::get('/about', function () {
+        return view('about',[
+            'title' => '关于'
+        ]);
+    });
     Route::auth();
     Route::controller('account', 'AccountController');
 });

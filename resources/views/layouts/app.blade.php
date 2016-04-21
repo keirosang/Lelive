@@ -18,6 +18,7 @@
             <span class="mdl-layout-title site-title" onclick="window.location='{{ url('/') }}'">{{ $title or 'Niconiconi' }}</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="{{ url('/about') }}">About</a>
                 @if (Auth::guest())
                     <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
                     <a class="mdl-navigation__link" href="{{ url('/login') }}">Login</a>
@@ -31,6 +32,7 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">{{ $title or 'Niconiconi' }}</span>
         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="{{ url('/about') }}">About</a>
             @if (Auth::guest())
                 <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
                 <a class="mdl-navigation__link" href="{{ url('/login') }}">Login</a>
