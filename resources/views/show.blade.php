@@ -49,7 +49,6 @@
 @endsection
 
 @section('js')
-    <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
     <script src="{{ url('/js/jquery.danmu.js') }}"></script>
     <script src="{{ url('/js/blive.js') }}"></script>
     <script src="{{ url('/js/AV.realtime.js') }}"></script>
