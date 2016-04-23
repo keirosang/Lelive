@@ -12,6 +12,10 @@
                         <div class="mdl-card__title mdl-card--expand live-shotcut"
                              style="background-image: url({{ $value['cover'] ? url('cover/'.$value['cover']) : 'http://ww2.sinaimg.cn/large/a15b4afegw1f0ngfljsgtj21hc0u0qin.jpg' }});">
                             <h2 class="mdl-card__title-text user-name">{{ $value['title'] }}</h2>
+                            <div class="cover">
+                                <div class="live-overlay"></div>
+                                <div class="live-play"></div>
+                            </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             {{ $value['description'] }}

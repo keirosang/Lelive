@@ -79,3 +79,59 @@ a{
 .danmaku{
     font-family: "SimHei" !important;
 }
+.cover{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+.live-play{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    background-image: url("//vofile.b0.upaiyun.com/images/live.png");
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    -webkit-transition: all ease-out 250ms;
+    -ms-transition: all ease-out 250ms;
+    transition: all ease-out 250ms;
+}
+.cover:hover .live-overlay{
+    opacity: .5;
+    -ms-filter: "alpha(opacity=50)";
+    filter: alpha(opacity=50)
+}
+.cover:hover .live-play{
+    opacity: 1;
+    visibility: visible;
+    -ms-filter: "alpha(opacity=100)";
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.live-overlay{
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    background-color: #000;
+    -webkit-transition: all ease-out 250ms;
+    -ms-transition: all ease-out 250ms;
+    transition: all ease-out 250ms;
+}

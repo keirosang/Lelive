@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/material-design-lite/1.1.1/material.min.css">
     <link rel="stylesheet" href="{{ url('/css/style.css') }}">
     <link href="//cdn.bootcss.com/material-design-icons/2.2.0/iconfont/material-icons.css" rel="stylesheet">
-    <link href="https://fonts.iwch.me/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link href="https://fonts.iwch.me/css?family=Open+Sans:600" rel='stylesheet' type='text/css'>
 </head>
 <body>
