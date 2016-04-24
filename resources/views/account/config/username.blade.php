@@ -4,7 +4,7 @@
     <div class="mdl-card__title header-background-image">
         <h4 class="user-name" style="margin:5px;">修改用户名</h4>
     </div>
-    <div class="mdl-card__supporting-text" style="text-align: center;width: auto;">
+    <div class="mdl-card__supporting-text" style="text-align: center;width: auto;padding:0;">
         <form method="post" action="/account/username">
         {!! csrf_field() !!}
         <table class="mdl-data-table mdl-js-data-table user-config">

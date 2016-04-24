@@ -10,7 +10,7 @@
                 <a class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col" href="/u/{{ $value['uid'] }}">
                     <div class="mdl-card mdl-shadow--4dp">
                         <div class="mdl-card__title mdl-card--expand live-shotcut"
-                             style="background-image: url({{ $value['cover'] ? url('cover/'.$value['cover']) : 'http://ww2.sinaimg.cn/large/a15b4afegw1f0ngfljsgtj21hc0u0qin.jpg' }});">
+                             style="background-image: url({{ $value['cover'] ? url('cover/'.$value['cover']) : 'http://ww2.sinaimg.cn/large/a15b4afegw1f2zu878wi4j20ms0f2abi.jpg' }});">
                             <h2 class="mdl-card__title-text user-name">{{ $value['title'] }}</h2>
                             <div class="cover">
                                 <div class="live-overlay"></div>

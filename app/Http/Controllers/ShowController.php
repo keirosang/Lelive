@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use App\Models\Liveinfo;
@@ -24,13 +22,13 @@ class ShowController extends Controller
         if($count){
             $livingUser = Liveinfo::select('uid','title','description')->where('ctime','>',time()-43200)->get();
             foreach ($livingUser as $user){
-            $count--;
-            $livingInfo[$count]['uid'] = $user['uid'];
-            $livingInfo[$count]['title'] = $user['title'];
-            $livingInfo[$count]['description'] = $user['description'];
-            $userCover = Cover::select('cover')->where('uid',$user['uid'])->first();
-            $livingInfo[$count]['cover'] = $userCover['cover'];
-        }
+                $count--;
+                $livingInfo[$count]['uid'] = $user['uid'];
+                $livingInfo[$count]['title'] = $user['title'];
+                $livingInfo[$count]['description'] = $user['description'];
+                $userCover = Cover::select('cover')->where('uid',$user['uid'])->first();
+                $livingInfo[$count]['cover'] = $userCover['cover'];
+            }
             ksort($livingInfo);
         }else{
             $livingInfo = array();

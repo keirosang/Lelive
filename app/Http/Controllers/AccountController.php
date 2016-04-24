@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Requests;
 use App\User;
 use Illuminate\Http\Request;
@@ -29,14 +28,19 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
-    {
+    public function getIndex(){
         view()->share('livestatus',$this->getLivestatus());
+        if(!$this->isBlocked()){
+            return view('account.config.blocked');
+        }
 
         return view('account.config.index');
     }
 
     public function getCreate(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         view()->share('livestatus',$this->getLivestatus());
         if($this->getLivestatus()){
             return redirect()->to('account');
@@ -45,9 +49,13 @@ class AccountController extends Controller
     }
 
     public function postCreate(Request $request){
-        if($this->getLivestatus()){
-            return redirect()->to('/account');
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
         }
+        if($this->getLivestatus()){
+            return redirect()->to('account');
+        }
+
         $config['livename'] = $request->input('livename') ? $request->input('livename') : $request->user()->name.'的直播';
         $config['record'] = $request->input('record') ? 1 : 0;
         $config['codeRateTypes'] = '99';
@@ -79,6 +87,9 @@ class AccountController extends Controller
     }
 
     public function getStop(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         view()->share('livestatus',$this->getLivestatus());
         if(!$this->getLivestatus()){
             return redirect()->to('account/create');
@@ -87,6 +98,9 @@ class AccountController extends Controller
     }
 
     public function postStop(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         if(!$this->getLivestatus()){
             return redirect()->to('account/create');
         }
@@ -102,6 +116,9 @@ class AccountController extends Controller
     }
 
     public function getInfo(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         view()->share('livestatus',$this->getLivestatus());
         if(!$this->getLivestatus()){
             return redirect()->to('account/create');
@@ -122,9 +139,12 @@ class AccountController extends Controller
         ]);
     }
 
-    public function getCover(Request $request){
-        $uid = Auth::user()->id;
+    public function getCover(){
         view()->share('livestatus',$this->getLivestatus());
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
+        $uid = Auth::user()->id;
 
         if(Cover::where('uid',$uid)->count()){
             $coverinfo = Cover::select('cover')->where('uid',$uid)->first();
@@ -139,6 +159,9 @@ class AccountController extends Controller
     }
 
     public function postCover(Request $request){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         $uid = Auth::user()->id;
 
         if(!$request->hasFile('cover')){
@@ -180,12 +203,17 @@ class AccountController extends Controller
     }
 
     public function getUsername(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         view()->share('livestatus',$this->getLivestatus());
-
         return view('account.config.username');
     }
 
     public function postUsername(Request $request){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         $uid = Auth::user()->id;
         $username = $request->input('newUsername');
         if(strlen($username)>4){
@@ -199,12 +227,17 @@ class AccountController extends Controller
     }
 
     public function getEmail(){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         view()->share('livestatus',$this->getLivestatus());
-
         return view('account.config.email');
     }
 
     public function postEmail(Request $request){
+        if(!$this->isBlocked()){
+            return redirect()->to('account');
+        }
         $uid = Auth::user()->id;
         $newEmail = $request->input('newEmail');
         $pattern="/([a-z0-9]*[-_.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[.][a-z]{2,3}([.][a-z]{2})?/i";
@@ -216,5 +249,11 @@ class AccountController extends Controller
         } else{
             return redirect()->to('account/email');
         }
+    }
+
+    public function isBlocked(){
+        $result = \App\Models\User::select('status')->where('id',Auth::user()->id)->first();
+        $blockStatus = $result->status;
+        return $blockStatus;
     }
 }
