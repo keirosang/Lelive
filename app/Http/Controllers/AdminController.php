@@ -76,7 +76,7 @@ class AdminController extends Controller
         $liveinfo = Liveinfo::select('activityId')->where('uid',$id)->first();
         $activityId = $liveinfo->activityId;
         Lecloud::stopActivity($activityId);
-        if(Liveinfo::where('uid',Auth::user()->id)->delete()){
+        if(Liveinfo::where('uid',$id)->delete()){
             return redirect()->to('admin/actinfo');
         }else{
             return redirect()->to("admin/actinfo/$id");
