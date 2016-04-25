@@ -31,6 +31,7 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">{{ $title or 'Niconiconi' }}</span>
         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="{{ url('/') }}">首页</a>
             <a class="mdl-navigation__link" href="{{ url('/about') }}">About</a>
             @if (Auth::guard('admin')->guest())
                 <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
