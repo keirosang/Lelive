@@ -10,7 +10,7 @@ PDO PHP Extension
 Mbstring PHP Extension
 Tokenizer PHP Extension
 ```
-并且需要安装`Composer`
+并且需要安装[Composer](https://getcomposer.org/download/)
 
 1) 通过git clone获得本项目源码：
 
