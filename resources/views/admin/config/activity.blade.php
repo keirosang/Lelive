@@ -4,7 +4,7 @@
     <div class="mdl-card__title header-background-image">
         <h4 class="user-name" style="margin:5px;">所有直播活动</h4>
     </div>
-    <div class="mdl-card__supporting-text" style="text-align: center;width: auto;padding:0;">
+    <div class="mdl-card__supporting-text" style="text-align: center;width: auto;padding:0;overflow-x:auto;">
         @if($livingInfo)
         <table class="mdl-data-table mdl-js-data-table user-config">
             <thead>
