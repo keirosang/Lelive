@@ -32,13 +32,13 @@
         <span class="mdl-layout-title">{{ $title or 'Niconiconi' }}</span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="{{ url('/') }}">首页</a>
-            <a class="mdl-navigation__link" href="{{ url('/about') }}">About</a>
+            <a class="mdl-navigation__link" href="{{ url('/about') }}">关于</a>
             @if (Auth::guest())
-                <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
-                <a class="mdl-navigation__link" href="{{ url('/login') }}">Login</a>
+                <a class="mdl-navigation__link" href="{{ url('/register') }}">注册</a>
+                <a class="mdl-navigation__link" href="{{ url('/login') }}">登录</a>
             @else
                 <a class="mdl-navigation__link" href="{{ url('/account') }}">{{ Auth::user()->name }}</a>
-                <a class="mdl-navigation__link" href="{{ url('/logout') }}">Logout</a>
+                <a class="mdl-navigation__link" href="{{ url('/logout') }}">登出</a>
             @endif
         </nav>
     </div>
