@@ -94,6 +94,8 @@ php artisan serve
 chmod -R 775 /var/www/laravel/storage
 ```
 
+管理员注册链接: 域名/admin/register
+
 这两个是申请完乐视和leancloud得到API KEY、Secret后填写。
 ```
 Lelive/app/Services/Leancloud.php
