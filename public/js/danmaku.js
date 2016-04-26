@@ -182,3 +182,10 @@ function sendDanmaku(message){
     var new_obj=eval('('+text_obj+')');
     $('#danmu').danmu("addDanmu",new_obj);
 }
+
+function showOrHideDanmu() {
+    if(danmu.style.display == 'none')
+        $('#danmu').show();
+    else
+        $('#danmu').hide();
+}
