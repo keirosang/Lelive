@@ -8,15 +8,15 @@
                     <img src="//gravatar.tycdn.net/avatar/{{ md5($email) }}?s=80" class="user-gravatar">
                     <div class="mdl-card live-info">
                         <div class="mdl-card__supporting-text">
-                            <h4 style="margin:5px;">{{ $title }}</h4>
-                            <h5 style="margin:5px;">主播：{{ $name }}</h5>
+                            <h4 class="show-title">{{ $title }}</h4>
+                            <h5 class="show-title">主播：{{ $name }}</h5>
                         </div>
                     </div>
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-card live-info">
                         <div class="mdl-card__supporting-text">
-                            <h5 style="margin:5px;">简介：</h5>
-                            <h6 style="margin:5px;white-space:nowrap;">{{ $description }}</h6>
+                            <h5 class="show-title">简介：</h5>
+                            <h6 class="show-title">{{ $description }}</h6>
                         </div>
                     </div>
                 </div>
