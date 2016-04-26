@@ -27,7 +27,7 @@ function bindEvent(dom, eventName, fun) {
 
 function main(appId,roomId){
     printWall.innerHTML = null;
-    showMessage('系统','正在连接弹幕姬...');
+    showMessage('系统','正在连接弹幕服务器...');
     if (!firstFlag) {
         rt.close();
     }
@@ -40,7 +40,7 @@ function main(appId,roomId){
 
     rt.on('open', function() {
         firstFlag = false;
-        showMessage('系统','弹幕姬连接成功！');
+        showMessage('系统','弹幕服务器连接成功！');
         // 获得已有房间的实例
         rt.room(roomId, function(object) {
 
@@ -63,27 +63,39 @@ function main(appId,roomId){
 
                 // 房间接受消息
                 room.receive(function(data) {
-                    showMsg(data);
+                    showMsg(data,true);
                     printWall.scrollTop = printWall.scrollHeight;
                 });
+
+                room.log(function(data) {
+                    var l = data.length;
+
+                    for (var i = 0; i < l; i++) {
+                        showMsg(data[i]);
+                    }
+                });
             } else {
-                showMessage('系统','弹幕姬连接失败Orz');
+                showMessage('系统','弹幕服务器连接失败...');
             }
         });
     });
 
-    // 监听服务情况
-    rt.on('reuse', function() {
-        showMessage('系统','弹幕姬正在重连，请耐心等待...');
+    rt.on('close', function() {
+        showMessage('系统','弹幕服务器被断开...');
     });
+
+    // 监听服务情况
+    // rt.on('reuse', function() {
+    //     showMessage('系统','弹幕服务器正在重连，请耐心等待...');
+    // });
 
     // 监听错误
     rt.on('error', function() {
-        showMessage('系统','弹幕姬遇到错误。。。');
+        showMessage('系统','弹幕服务器遇到错误...');
     });
 }
 
-function showMessage(name, data) {
+function showMessage(name, data,danmuma) {
     if (data) {
         console.log(name, data);
         msg = '<a>' + encodeHTML(name) + '</a> : <span>' + encodeHTML(data) + '</span>'
@@ -91,7 +103,9 @@ function showMessage(name, data) {
     var div = document.createElement('div');
     div.className = 'user-danmaku';
     div.innerHTML = msg;
-    sendDanmaku(encodeHTML(data));
+    if(danmuma) {
+        sendDanmaku(encodeHTML(data));
+    }
     printWall.appendChild(div);
     if(printWall.childNodes.length>150){
         printWall.removeChild(printWall.childNodes[0]);
@@ -105,7 +119,7 @@ function encodeHTML(source) {
         .replace(/>/g, '&gt;');
 }
 
-function showMsg(data) {
+function showMsg(data,danmuma) {
     var text = '';
     var from = data.fromPeerId;
     if (data.msg.type) {
@@ -114,7 +128,7 @@ function showMsg(data) {
         text = data.msg;
     }
     if (String(text).replace(/^\s+/, '').replace(/\s+$/, '')) {
-        showMessage(encodeHTML(from), text);
+        showMessage(encodeHTML(from), text, danmuma);
     }
 }
 
@@ -138,7 +152,7 @@ function sendMsg() {
             type: 'text'
         }, function (data) {
             inputSend.value = '';
-            showMessage('我', val);
+            showMessage('我', val,true);
             printWall.scrollTop = printWall.scrollHeight;
         });
     }
