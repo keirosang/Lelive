@@ -131,3 +131,8 @@ server {
 - [ ] 弹幕重复bug修复
 - [ ] 游客ID区分
 - [ ] 直播录制视频观看
+- [ ] 直播期间允许修改标题和简介
+
+## LICENSE
+
+MIT © [Volio](https://niconiconi.org)
