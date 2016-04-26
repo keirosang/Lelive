@@ -33,7 +33,7 @@
         <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
             <div class="mdl-card mdl-shadow--4dp" id="comments">
                 <div class="mdl-card__title mdl-card--expand header-background-image">
-                    <h2 class="mdl-card__title-text user-name" style="padding-right: 2em;">Danmaku</h2>
+                    <h4 class="user-name" style="margin: 0;">Danmaku</h4>
                     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-danmu" style="margin-left: 2em;">
                         <input type="checkbox" id="switch-danmu" class="mdl-switch__input" onchange="showOrHideDanmu();">
                         <span class="mdl-switch__label"></span>
