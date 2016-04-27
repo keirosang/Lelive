@@ -43,7 +43,7 @@
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <div class="mdl-textfield mdl-js-textfield danmaku-input">
-                        <input class="mdl-textfield__input" type="email" id="danmaku">
+                        <input class="mdl-textfield__input" type="text" id="danmaku">
                         <label class="mdl-textfield__label" for="danmaku">点此发送弹幕</label>
                     </div>
                 </div>
