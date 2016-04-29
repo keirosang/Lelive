@@ -69,7 +69,8 @@ class AccountController extends Controller
             $config['codeRateTypes'] .= ',13';
 
         $result = Lecloud::creatActivity($config);
-        $activityId = json_decode($result,true)['activityId'];
+        $res_arr  = json_decode($result,true);
+        $activityId = array_key_exists('activityId', $res_arr) ? $res_arr['activityId'] : false;
         if($activityId){
             $Liveinfo = new Liveinfo();
             $Liveinfo->uid = Auth::user()->id;
@@ -128,7 +129,7 @@ class AccountController extends Controller
         $activityId = $liveinfo->activityId;
         $json = Lecloud::getPushUrl($activityId);
         $arr = json_decode($json,true);
-        $pushAll = $arr['lives'][0]['pushUrl'];
+        $pushAll = array_key_exists('lives',$arr) ? $arr['lives'][0]['pushUrl'] : null;
         $pushUrl = 'rtmp://w.gslb.lecloud.com/live';
         $pushKey = str_replace('rtmp://w.gslb.lecloud.com/live/','',$pushAll);
 

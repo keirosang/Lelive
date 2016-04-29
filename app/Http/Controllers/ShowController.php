@@ -49,11 +49,14 @@ class ShowController extends Controller
         }
         if(!$danmakuinfo){
             $json = Leancloud::createRoom('room'.$id);
-            $roomId = json_decode($json,true)['objectId'];
-            $danmaku = new Danmaku();
-            $danmaku->uid = $id;
-            $danmaku->roomId = $roomId;
-            $danmaku->save();
+            $res_arr = json_decode($json,true);
+            $roomId = array_key_exists('objectId', $res_arr) ? $res_arr['objectId'] : false;
+            if($roomId){
+                $danmaku = new Danmaku();
+                $danmaku->uid = $id;
+                $danmaku->roomId = $roomId;
+                $danmaku->save();
+            }
         }else{
             $roomId = $danmakuinfo->roomId;
         }
